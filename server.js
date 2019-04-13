@@ -2,8 +2,8 @@
 
 const smartcar = require('smartcar');
 const express = require('express');
-
 const app = express();
+var mysql = require('mysql');
 
 const port = 4000;
 
@@ -21,6 +21,12 @@ const authData = {
     ],
     testMode: true, // launch the Smartcar auth flow in test mode
 };  //TODO do export in another file instead
+const mysqlConfig = {
+    host: "securent.c8nen4gyphkp.us-east-2.rds.amazonaws.com",
+    port: 3306,
+    user: "securent",
+    password: "hacksc2019"
+};
 
 const client = new smartcar.AuthClient(authData);
 
@@ -74,16 +80,16 @@ app.get('/callback', function(req, res, next) {
 
         .then(async function(ids) {
 
-            let odometer;
+
             let result = [];
 
             for (let i = 0; i < ids.length; i++) {
 
-                odometer = await ids[i].odometer();
                 let location = await ids[i].location();
                 let info = await ids[i].info();
+                let {data: {distance}} = await ids[i].odometer();
 
-                result.push(Object.assign({}, odometer, location, info));
+                result.push(Object.assign({}, {"distance": distance}, info, location));
 
             }
 
@@ -93,13 +99,34 @@ app.get('/callback', function(req, res, next) {
 
         })      //get infos
 
-        .then(function(data) {
+        .then(async function(data) {
 
-            //TODO upload to database / Firestore
+            var con = mysql.createConnection(mysqlConfig);
+
+            con.connect(async function(err) {
+                if (err) {
+                    throw err;
+                }
+
+                console.log("Connected!");
+
+                var sql = 'INSERT INTO cars' + data;
+
+                await con.query(sql, async function (err, result) {
+                    if (err) {
+                        throw err;
+                    }
+
+                    console.log("Result: " + result);
+                });
+
+            });
+
+            //assign to specific user
 
             res.json(data);
 
-        });
+        });    //log to db
 
     // TODO refresh Token ??
 
