@@ -1,0 +1,29 @@
+{
+  "name": "hacksc",
+  "version": "1.0.0",
+  "description": "HackSC",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artem-tkachuk/HackSC.git"
+  },
+  "keywords": [
+    "smartcar",
+    "blockchain",
+    "car",
+    "rental",
+    "smart-contract"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/artem-tkachuk/HackSC/issues"
+  },
+  "homepage": "https://github.com/artem-tkachuk/HackSC#readme",
+  "dependencies": {
+    "smartcar": "^6.0.0"
+  }
+}
