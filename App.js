@@ -67,20 +67,20 @@ class App extends Component {
         this.fetchData2();
     }
 
-    fetchData2() {
+   /* fetchData2() {
         fetch('https://hacksc-backend-1555207106499.appspot.com/cars').then(response => {
 
             return response;
 
         }).then((data) => {
             return data.json();
-        }).then(r(es) => {
+        }).then(res => {
             this.setState({
                 carData: res.data
-            });
+            })
         });
     }
-
+*/
     setUser() {
         Auth.currentAuthenticatedUser({
             bypassCache: false  // Optional, By default is false. If set to true, this call will send a request to Cognito to get the latest user data

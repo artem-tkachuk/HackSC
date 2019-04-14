@@ -163,4 +163,86 @@ app.get('/callback', async function(req, res, next) {
 
 });
 
+app.get('/map', async function (req, res) {
+
+   res.write("\n" +
+       "\n" +
+       "<div id=\"map\"></div>\n" +
+       "\n" +
+       "/* Always set the map height explicitly to define the size of the div\n" +
+       "* element that contains the map. */\n" +
+       "#map {\n" +
+       "height: 100%;\n" +
+       "}\n" +
+       "/* Optional: Makes the sample page fill the window. */\n" +
+       "html, body {\n" +
+       "height: 100%;\n" +
+       "margin: 0;\n" +
+       "padding: 0;\n" +
+       "}\n" +
+       "\n" +
+       "<!-- Replace the value of the key parameter with your own API key. -->\n" +
+       "<script src=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyCkUOdZ5y7hMm0yrcCQoCvLwzdM6M8s5qk&callback=initMap\" async defer></script>\n" +
+       "\n" +
+       "<!DOCTYPE html>\n" +
+       "<html>\n" +
+       "<head>\n" +
+       "    <title>Simple Map</title>\n" +
+       "    <meta name=\"viewport\" content=\"initial-scale=1.0\">\n" +
+       "    <meta charset=\"utf-8\">\n" +
+       "    <style>\n" +
+       "        /* Always set the map height explicitly to define the size of the div\n" +
+       "         * element that contains the map. */\n" +
+       "        #map {\n" +
+       "            height: 100%;\n" +
+       "        }\n" +
+       "        /* Optional: Makes the sample page fill the window. */\n" +
+       "        html, body {\n" +
+       "            height: 100%;\n" +
+       "            margin: 0;\n" +
+       "            padding: 0;\n" +
+       "        }\n" +
+       "    </style>\n" +
+       "</head>\n" +
+       "<body>\n" +
+       "<div id=\"map\"></div>\n" +
+       "<script>\n" +
+       "    var map;\n" +
+       "    async function initMap() {\n" +
+       "        map = new google.maps.Map(document.getElementById('map'), {\n" +
+       "            center: {lat:  39.067981, lng: -105.680725 },\n" +
+       "            zoom: 8\n" +
+       "        });\n" +
+       "\n" +
+       "        const url = 'https://hacksc-backend-1555207106499.appspot.com/cars';        //api endpoint\n" +
+       "\n" +
+       "        const data = await fetch(url).then((data) => {return data.json()}).then((res) => {return res});\n" +
+       "\n" +
+       "        console.log(data);\n" +
+       "\n" +
+       "        for (var i = 0; i < data.length; i++) {\n" +
+       "            let marker = await new google.maps.Marker({\n" +
+       "                position: {\n" +
+       "                    \"lat\": data[i].lat,\n" +
+       "                    \"lng\": data[i].lon\n" +
+       "                },\n" +
+       "                map: map,\n" +
+       "                title: (data[i].make + \" \" + data[i].model).toString()\n" +
+       "            });\n" +
+       "\n" +
+       "            await marker.setMap(map);\n" +
+       "        }\n" +
+       "\n" +
+       "\n" +
+       "    }\n" +
+       "</script>\n" +
+       "<script src=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyAcx68ZlwaS0aWEWiW9mi-GMRkqjeEsNSg&callback=initMap\"\n" +
+       "        async defer></script>\n" +
+       "</body>\n" +
+       "</html>");
+
+        res.end();
+
+});
+
 app.listen(port, () => console.log(`Listening on port ${port}`));
