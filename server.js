@@ -7,7 +7,7 @@ const app = express();
 const smartcar = require('smartcar');
 var mysql = require('mysql');
 
-const port = 4000;
+const port = process.env.PORT || 8080;
 
 app.use(bodyParser.json({extended: false}));
 
@@ -15,7 +15,7 @@ app.use(bodyParser.json({extended: false}));
 const authData = {
     clientId: '96907e36-d6af-44e6-8aef-0c7b718e247e',
     clientSecret: '3b2eb38b-b270-4ba7-af52-16490b73deef',
-    redirectUri: 'http://localhost:4000/callback',//'https://securent.appspot.com/callback',
+    redirectUri: 'https://securent.appspot.com/callback',
     scope: [
         'read_vehicle_info',
         'control_security',
@@ -40,10 +40,14 @@ const client = new smartcar.AuthClient(authData);
 var sub = 'hi';
 
 
+app.get('/', (req, res) => {
+    res.send('<h1>Hello, World<h1>');
+});
+
 //TODO parse sub of the client
 // Redirect to Smartcar's authentication flow
 app.get('/login', function(req, res) {
-    //sub = req.body.sub;
+    sub = req.body.sub;
     const link = client.getAuthUrl();
     // redirect to the link
     res.redirect(link);
