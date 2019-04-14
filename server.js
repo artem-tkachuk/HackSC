@@ -1,12 +1,17 @@
 'use strict';
 
-const smartcar = require('smartcar');
+
 const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
+const smartcar = require('smartcar');
 var mysql = require('mysql');
 
 const port = 4000;
 
+app.use(bodyParser.json({extended: false}));
+
+//TODO do export in another file instead
 const authData = {
     clientId: '96907e36-d6af-44e6-8aef-0c7b718e247e',
     clientSecret: '3b2eb38b-b270-4ba7-af52-16490b73deef',
@@ -20,22 +25,30 @@ const authData = {
         'read_odometer'
     ],
     testMode: true, // launch the Smartcar auth flow in test mode
-};  //TODO do export in another file instead
+};
 const mysqlConfig = {
-    host: "securent.c8nen4gyphkp.us-east-2.rds.amazonaws.com",
+    host: "hsct1-mysqldb.ckdvpb3pnscg.us-east-1.rds.amazonaws.com",
     port: 3306,
-    user: "securent",
-    password: "hacksc2019"
+    user: "hscadmin",
+    password: "123qwert",
+    database: "hacksc"
 };
 
-const client = new smartcar.AuthClient(authData);
 
+const con = mysql.createConnection(mysqlConfig);
+const client = new smartcar.AuthClient(authData);
+var sub = 'hi';
+
+
+//TODO parse sub of the client
 // Redirect to Smartcar's authentication flow
 app.get('/login', function(req, res) {
+    //sub = req.body.sub;
     const link = client.getAuthUrl();
     // redirect to the link
     res.redirect(link);
 });
+
 
 // Handle Smartcar callback with auth code
 app.get('/callback', function(req, res, next) {
@@ -99,9 +112,7 @@ app.get('/callback', function(req, res, next) {
 
         })      //get infos
 
-        .then(async function(data) {
-
-            var con = mysql.createConnection(mysqlConfig);
+        .then(async function(data) {    //log into db
 
             con.connect(async function(err) {
                 if (err) {
@@ -110,19 +121,29 @@ app.get('/callback', function(req, res, next) {
 
                 console.log("Connected!");
 
-                var sql = 'INSERT INTO cars' + data;
 
-                await con.query(sql, async function (err, result) {
-                    if (err) {
-                        throw err;
-                    }
+                for (var i = 0; i < data.length; i++) {
 
-                    console.log("Result: " + result);
-                });
+                    var sql = 'INSERT INTO cars(id, sub, year, make, model, lat, lon, distance, age) VALUES(' + `'${data[i].id}', '${sub}', '${data[i].year}', '${data[i].make}', '${data[i].model}', '${data[i].data.latitude}', '${data[i].data.longitude}', '${data[i].distance}', '${data[i].age}');`;
+
+                    console.log(sql);
+
+                    await con.query(sql, async function (err, result) {
+                        if (err) {
+                            throw err;
+                        }
+
+                        console.log("Result: " + result);
+
+                    });
+
+                }
+
+
 
             });
 
-            //assign to specific user
+            //assign to specific user*/
 
             res.json(data);
 
