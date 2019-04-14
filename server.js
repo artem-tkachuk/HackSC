@@ -9,7 +9,8 @@ var mysql = require('mysql');
 
 const port = process.env.PORT || 8080;
 
-app.use(bodyParser.json({extended: false}));
+app.set('trust proxy');
+//app.use(bodyParser.json());
 
 //TODO do export in another file instead
 const authData = {
@@ -31,11 +32,10 @@ const mysqlConfig = {
     port: 3306,
     user: "hscadmin",
     password: "123qwert",
-    database: "hacksc"
+    database: "hacksc",
+    timeout: 60000
 };
 
-
-const con = mysql.createConnection(mysqlConfig);
 const client = new smartcar.AuthClient(authData);
 var sub = 'hi';
 
@@ -47,7 +47,7 @@ app.get('/', (req, res) => {
 //TODO parse sub of the client
 // Redirect to Smartcar's authentication flow
 app.get('/login', function(req, res) {
-    sub = req.body.sub;
+    //sub = req.body.sub;
     const link = client.getAuthUrl();
     // redirect to the link
     res.redirect(link);
@@ -55,9 +55,11 @@ app.get('/login', function(req, res) {
 
 
 // Handle Smartcar callback with auth code
-app.get('/callback', function(req, res, next) {
+app.get('/callback', async function(req, res, next) {
 
     let access;
+
+    console.log('hi!');
 
     if (req.query.error) {
         // the user denied your requested permissions
@@ -65,7 +67,7 @@ app.get('/callback', function(req, res, next) {
     }                         //didn't grant permissions
 
     // exchange auth code for access token
-    return client.exchangeCode(req.query.code)
+    return await client.exchangeCode(req.query.code)
 
         .then(function(_access) {
             // in a production app you'll want to store this in some kind of persistent storage
@@ -118,21 +120,22 @@ app.get('/callback', function(req, res, next) {
 
         .then(async function(data) {    //log into db
 
-            con.connect(async function(err) {
-                if (err) {
-                    throw err;
-                }
-
-                console.log("Connected!");
-
+                let con = await mysql.createConnection(mysqlConfig);
+                await con.connect(function(err) {
+                    if (err) {
+                        throw err;
+                    }
+                    console.log("Connected");
+                });
 
                 for (var i = 0; i < data.length; i++) {
 
-                    var sql = 'INSERT INTO cars(id, sub, year, make, model, lat, lon, distance, age) VALUES(' + `'${data[i].id}', '${sub}', '${data[i].year}', '${data[i].make}', '${data[i].model}', '${data[i].data.latitude}', '${data[i].data.longitude}', '${data[i].distance}', '${data[i].age}');`;
+                    var sql = 'INSERT INTO cars(id, sub, year, make, model, lat, lon, distance, age) VALUES(' + `'${data[i].id}', NULL/*'${sub}'*/, '${data[i].year}', '${data[i].make}', '${data[i].model}', '${data[i].data.latitude}', '${data[i].data.longitude}', '${data[i].distance}', '${data[i].age}');`;
+                    //TODO fix sub!
 
                     console.log(sql);
 
-                    await con.query(sql, async function (err, result) {
+                    await con.query(sql, function (err, result) {
                         if (err) {
                             throw err;
                         }
@@ -143,15 +146,18 @@ app.get('/callback', function(req, res, next) {
 
                 }
 
+                con.end();
 
+            res.send('You have successfully added your vehicle(s) to our system! ');
 
-            });
 
             //assign to specific user*/
 
-            res.json(data);
+
 
         });    //log to db
+
+
 
     // TODO refresh Token ??
 
