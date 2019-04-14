@@ -1,5 +1,9 @@
 ## Philosophy
-More than **26%** of all fatal car accidents happen because of the drivers exceeding the speed limit. This number concerns us a lot and we want to significantly reduce it. We sincerely believe our product will make the roads safer, reduce the number of accidents and make the world a better place! If people will be driven by savings, they will volunteer to obey speed limits to make car rentals more profitable for them!
+More than **26%** of all fatal car accidents happen because of the drivers exceeding the speed limit. 
+
+This number concerns us a lot and we want to significantly reduce it. 
+
+We sincerely believe our product will make the roads safer, reduce the number of accidents and make the world a better place! If people will be driven by savings, they will volunteer to obey speed limits to make car rentals more profitable for them!
 
 ## Inspiration
 Each of us uses car rentals a lot. We also know people who allow others to rent their cars. Being informed about some of the _problems_ with this process, we decided to design a product, that will both 
@@ -29,13 +33,21 @@ Our amazing future plans include Totle, Etherium and Google Cloud Machine Learni
 2. Retrieving data from our designed AWS Aurora database API to display it as a table
 3. Port issue with deploying on Google Cloud platform
 4. refreshing the Smartcar access token
-5. 
+5. Parsing API response from a database and rendering it as a table in React App
+6. ...
+7. ...  
+another million of minor challenges that we ran into and solved
+
 
 ## Accomplishments that we are proud of
 1. We managed to set up an Amplify React application
 2. We were able to established a working connection between each other
 3. We successfully went through a JavaScript callback hell!
-4. 
+4. We made GCP and AWS work together!
+5. We reduced the number of fatal car accidents
+6. We made roads safer
+7. We helped people save money
+8. We allowed car owners to make confident choice in giving / not giving permissions
 
 ## What did we learn throughout these days?
 This hackathon was an amazing experience for us. These are some of the many things we learned:
@@ -47,7 +59,7 @@ This hackathon was an amazing experience for us. These are some of the many thin
 4. How to use Google Maps speed limits API given latitude and longitude
 5. How to use smartcar API
 6. How to stack cups
-7. 
+8. So much more
 
 ## How do we develop it further and make it an <i>truly amazing</i> application?
 We are _absolutely_ motivated to improve our application and inspired by the idea! Here are some things we are already working today:

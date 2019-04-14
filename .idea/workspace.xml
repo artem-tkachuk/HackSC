@@ -2,6 +2,69 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="209476d2-8e73-41c3-bcab-601d22e2210b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/font-awesome.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/images/intro.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/noscript.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/FontAwesome.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/fontawesome-webfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/fontawesome-webfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/fontawesome-webfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/fontawesome-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/fontawesome-webfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/breakpoints.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/browser.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/jquery.scrollex.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/jquery.scrolly.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/util.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/sass/base/_page.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/sass/base/_reset.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/sass/base/_typography.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/sass/components/_actions.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/sass/components/_box.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/sass/components/_button.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/sass/components/_contact.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/sass/components/_features.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/sass/components/_form.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/sass/components/_icon.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/sass/components/_icons.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/sass/components/_image.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/sass/components/_list.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/sass/components/_menu.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/sass/components/_row.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/sass/components/_section.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/sass/components/_split.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/sass/components/_spotlights.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/sass/components/_table.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/sass/components/_wrapper.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/sass/layout/_footer.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/sass/layout/_header.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/sass/layout/_intro.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/sass/layout/_sidebar.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/sass/layout/_wrapper.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/sass/libs/_breakpoints.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/sass/libs/_functions.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/sass/libs/_html-grid.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/sass/libs/_mixins.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/sass/libs/_vars.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/sass/libs/_vendor.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/sass/main.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/sass/noscript.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/elements.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generic.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/pic01.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/pic02.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/pic03.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/pic04.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/pic05.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/pic06.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/ren_a_car.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/sdfsdfds.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
@@ -41,8 +104,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="357">
-                <caret line="31" column="3" lean-forward="true" selection-start-line="31" selection-start-column="3" selection-end-line="31" selection-end-column="3" />
+              <first_editor relative-caret-position="120">
+                <caret line="5" selection-start-line="5" selection-end-line="5" />
               </first_editor>
               <second_editor />
             </state>
@@ -132,12 +195,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1555124663537</updated>
-      <workItem from="1555124665565" duration="42563000" />
+      <workItem from="1555124665565" duration="42984000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42563000" />
+    <option name="totallyTimeSpent" value="42984000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="959" extended-state="6" />
@@ -225,8 +288,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="357">
-            <caret line="31" column="3" lean-forward="true" selection-start-line="31" selection-start-column="3" selection-end-line="31" selection-end-column="3" />
+          <first_editor relative-caret-position="120">
+            <caret line="5" selection-start-line="5" selection-end-line="5" />
           </first_editor>
           <second_editor />
         </state>
